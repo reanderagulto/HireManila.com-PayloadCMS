@@ -1,0 +1,51 @@
+@reference "../../app/(frontend)/globals.css";
+
+.nav__item {
+  @apply relative flex items-center px-[24px] h-[40px] cursor-pointer hover:text-primary-500;
+}
+
+.nav__item.open svg {
+  @apply rotate-180;
+}
+
+.nav__item:hover svg path {
+  @apply stroke-primary-500;
+}
+
+.nav__item span {
+  @apply text-[14px] leading-[40px];
+}
+
+.nav__item--wrapper {
+  @apply flex items-center justify-center gap-[6px];
+}
+
+.nav__submenu-wrapper {
+  @apply relative bg-white transition-all
+         lg:absolute lg:w-[max(22.22vw,320px)] lg:left-[50%] lg:top-[40px] lg:z-999 lg:rounded-lg 
+         lg:border lg:border-neutral-100 lg:p-6 lg:invisible lg:opacity-0 lg:-translate-x-1/2;
+}
+
+.nav__submenu {
+  @apply flex flex-col gap-2;
+}
+
+.nav__submenu--item {
+  @apply flex gap-2 rounded p-2 px-4 cursor-pointer transition-all hover:bg-primary-100;
+}
+
+.nav__submenu--icon {
+  @apply flex items-center justify-center size-9 rounded border border-neutral-100 bg-neutral-50 shrink-0;
+}
+
+.nav__submenu--title h3 {
+  @apply text-[14px] font-medium leading-[1.42] mb-[2px] text-neutral-900 font-title;
+}
+
+.nav__submenu--item .payload-richtext {
+  @apply text-xs font-normal leading-[1.33] text-neutral-500 m-0;
+}
+
+.nav__item.open .nav__submenu-wrapper {
+  @apply lg:visible lg:opacity-100;
+}
