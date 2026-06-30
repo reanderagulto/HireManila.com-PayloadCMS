@@ -9,6 +9,8 @@ import type { Header } from '@/payload-types'
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
 
+import './header.css'
+
 interface HeaderClientProps {
   data: Header
 }
@@ -30,12 +32,19 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }, [headerTheme])
 
   return (
-    <header className="container relative z-20">
-      <div className="py-4 flex justify-between">
-        <Link href="/">
-          <Logo />
-        </Link>
-        <HeaderNav data={data} />
+    <header className="header">
+      <div className="container header__wrapper">
+        <div className="header__inner-wrap">
+          <Link href="/">
+            <Logo />
+          </Link>
+          <HeaderNav data={data} />
+          <div className="header__mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
     </header>
   )
