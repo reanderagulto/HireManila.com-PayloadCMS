@@ -1,0 +1,18 @@
+@reference "../app/(frontend)/globals.css";
+
+.header {
+  @apply sticky z-20 w-full top-0 bg-white shadow-[0_2px_4px_-2px_#6a77850f,0_4px_6px_-1px_#6a77850a];
+}
+
+.header__inner-wrap {
+  @apply py-4 flex justify-between;
+}
+
+.header__mobile-toggle {
+  @apply lg:hidden w-[52px] h-[40px] flex items-center justify-center flex-col gap-[6px] shrink cursor-pointer;
+}
+
+.header__mobile-toggle span {
+  @apply w-8 content-none block h-1 bg-neutral-500 rounded-lg transition-transform mx-auto;
+  content: '';
+}
