@@ -59,7 +59,10 @@ const renderNavItemChild = (item: NavChild, index: number) => (
   </Link>
 )
 
-export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
+export const HeaderNav: React.FC<{ data: HeaderType; mobileMenuOpen: boolean }> = ({
+  data,
+  mobileMenuOpen,
+}) => {
   const navItems = data?.navItems || []
 
   const [openIndex, setOpenIndex] = React.useState<number | null>(null)
@@ -84,7 +87,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   }, [])
 
   return (
-    <div className="nav">
+    <div className={`nav ${mobileMenuOpen ? 'open' : ''}`}>
       <nav ref={navRef} className="nav__wrapper">
         {navItems.map((item, i) => renderNavItem(item, i, openIndex, handleToggle))}
       </nav>

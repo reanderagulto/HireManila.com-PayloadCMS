@@ -16,6 +16,8 @@ interface HeaderClientProps {
 }
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
@@ -38,8 +40,11 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           <Link href="/">
             <Logo />
           </Link>
-          <HeaderNav data={data} />
-          <div className="header__mobile-toggle">
+          <HeaderNav data={data} mobileMenuOpen={mobileMenuOpen} />
+          <div
+            className={`header__mobile-toggle ${mobileMenuOpen ? 'active' : ''}`}
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+          >
             <span></span>
             <span></span>
             <span></span>

@@ -9,7 +9,19 @@
 }
 
 .header__mobile-toggle {
-  @apply lg:hidden w-[52px] h-[40px] flex items-center justify-center flex-col gap-[6px] shrink cursor-pointer;
+  @apply lg:hidden w-[52px] h-[40px] flex items-center justify-center flex-col gap-[6px] shrink cursor-pointer transition-transform duration-150 ease-in-out;
+}
+
+.header__mobile-toggle.active span:first-of-type {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+
+.header__mobile-toggle.active span:nth-of-type(2) {
+  @apply hidden;
+}
+
+.header__mobile-toggle.active span:last-of-type {
+  transform: translate3d(0, 0px, 0) rotate(135deg);
 }
 
 .header__mobile-toggle span {

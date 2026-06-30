@@ -69,6 +69,10 @@
   @apply h-full lg:h-[40px];
 }
 
+.nav.open {
+  @apply visible opacity-100;
+}
+
 .nav__item.open .nav__submenu-wrapper {
   @apply visible opacity-100;
 }
