@@ -5,7 +5,6 @@ import './nav.css'
 
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import Image from 'next/image'
-import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
 import { CaretDown } from '@/components/Icons'
 

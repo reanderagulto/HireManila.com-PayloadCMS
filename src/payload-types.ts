@@ -1708,10 +1708,6 @@ export interface Footer {
   navItems?:
     | {
         title: string;
-        /**
-         * Name of the icon to display for this item.
-         */
-        icon?: string | null;
         link?: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
@@ -1729,10 +1725,6 @@ export interface Footer {
         children?:
           | {
               title: string;
-              /**
-               * Name of the icon to display for this nested item.
-               */
-              icon?: string | null;
               link?: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
@@ -1753,13 +1745,6 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
-  aboutUs: {
-    title: string;
-    /**
-     * Content for the About Us section in the footer.
-     */
-    content?: string | null;
-  };
   legal?: {
     termsOfService?: (number | null) | Page;
     privacyPolicy?: (number | null) | Page;
@@ -1815,7 +1800,6 @@ export interface FooterSelect<T extends boolean = true> {
     | T
     | {
         title?: T;
-        icon?: T;
         link?:
           | T
           | {
@@ -1828,7 +1812,6 @@ export interface FooterSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              icon?: T;
               link?:
                 | T
                 | {
@@ -1840,12 +1823,6 @@ export interface FooterSelect<T extends boolean = true> {
               id?: T;
             };
         id?: T;
-      };
-  aboutUs?:
-    | T
-    | {
-        title?: T;
-        content?: T;
       };
   legal?:
     | T

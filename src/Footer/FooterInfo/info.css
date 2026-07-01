@@ -1,0 +1,21 @@
+@reference "../../app/(frontend)/globals.css";
+
+.footer-info {
+  @apply mt-6 text-neutral-300 text-[0.75rem] font-default font-normal leading-[1.33];
+}
+
+.footer-info--wrapper {
+  @apply w-full max-w-[max(36.67vw,528px)];
+}
+
+.footer-legal {
+  @apply mt-6 flex items-center gap-2;
+}
+
+.footer-legal a {
+  @apply text-neutral-300 text-[0.75rem] font-default font-normal leading-[1.33] cursor-pointer;
+}
+
+.footer-legal a:last-of-type {
+  @apply border-l border-neutral-300 pl-2;
+}

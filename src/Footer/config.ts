@@ -13,16 +13,7 @@ const navItemFields: Field[] = [
         label: 'Title',
         required: true,
         admin: {
-          width: '50%',
-        },
-      },
-      {
-        name: 'icon',
-        type: 'text',
-        label: 'Icon',
-        admin: {
-          width: '50%',
-          description: 'Name of the icon to display for this item.',
+          width: '100%',
         },
       },
     ],
@@ -46,16 +37,7 @@ const navItemFields: Field[] = [
             label: 'Title',
             required: true,
             admin: {
-              width: '50%',
-            },
-          },
-          {
-            name: 'icon',
-            type: 'text',
-            label: 'Icon',
-            admin: {
-              width: '50%',
-              description: 'Name of the icon to display for this nested item.',
+              width: '100%',
             },
           },
         ],
@@ -88,28 +70,6 @@ export const Footer: GlobalConfig = {
           RowLabel: '@/Footer/RowLabel#RowLabel',
         },
       },
-    },
-    {
-      name: 'aboutUs',
-      type: 'group',
-      label: 'About Us',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          label: 'Title',
-          defaultValue: 'About Us',
-          required: true,
-        },
-        {
-          name: 'content',
-          type: 'textarea',
-          label: 'Description',
-          admin: {
-            description: 'Content for the About Us section in the footer.',
-          },
-        },
-      ],
     },
     {
       name: 'legal',

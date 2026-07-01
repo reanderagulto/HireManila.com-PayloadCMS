@@ -1,0 +1,25 @@
+@reference "../../app/(frontend)/globals.css";
+
+.footer-nav {
+  @apply flex items-start justify-end gap-10 text-white;
+}
+
+.footer-nav--wrapper {
+  @apply w-full grow;
+}
+
+.footer-nav__item {
+  @apply flex flex-col text-white font-title text-[1rem] font-bold leading-[1.5] w-[33.3333333333%];
+}
+
+.footer-nav__item--label {
+  @apply font-title mb-4 cursor-auto;
+}
+
+.footer-nav__submenu {
+  @apply flex flex-col gap-3;
+}
+
+.footer-nav__submenu--item {
+  @apply text-neutral-300 font-default text-[0.875rem] font-normal leading-[1.42] cursor-pointer hover:underline;
+}

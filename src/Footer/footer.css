@@ -1,0 +1,9 @@
+@reference "../app/(frontend)/globals.css";
+
+.footer {
+  @apply bg-secondary-blue-800 text-white pt-[56px] pb-[80px];
+}
+
+.footer__container {
+  @apply flex flex-col items-start justify-between gap-10 lg:flex-row;
+}
