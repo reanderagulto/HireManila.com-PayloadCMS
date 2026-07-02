@@ -6,7 +6,7 @@ import type { Footer as FooterType } from '@/payload-types'
 import { FooterNav } from './Nav'
 import { Logo } from '@/components/Logo/Logo'
 import Link from 'next/link'
-import FooterInfo from './FooterInfo'
+import { FooterInfo } from './FooterInfo'
 
 import './footer.css'
 
@@ -23,11 +23,20 @@ export const FooterClient: React.FC<FooterClientProps> = ({ data }) => {
             <Link href="/">
               <Logo inverted={true} />
             </Link>
-            <FooterInfo data={data.legal} />
+            <FooterInfo
+              legal={data.legal}
+              className="lg:block hidden"
+              socialLinks={data.socialLinks}
+            />
           </div>
           <div className="footer-nav--wrapper">
             <FooterNav data={data} />
           </div>
+          <FooterInfo
+            legal={data.legal}
+            className="lg:hidden block"
+            socialLinks={data.socialLinks}
+          />
         </div>
       </div>
     </footer>

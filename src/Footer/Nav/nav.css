@@ -1,7 +1,7 @@
 @reference "../../app/(frontend)/globals.css";
 
 .footer-nav {
-  @apply flex items-start justify-end gap-10 text-white;
+  @apply flex flex-wrap items-start justify-start gap-10 text-white lg:justify-end;
 }
 
 .footer-nav--wrapper {
@@ -9,7 +9,7 @@
 }
 
 .footer-nav__item {
-  @apply flex flex-col text-white font-title text-[1rem] font-bold leading-[1.5] w-[33.3333333333%];
+  @apply w-full flex flex-col text-white font-title text-[1rem] font-bold leading-[1.5] sm:w-[33.3333333333%];
 }
 
 .footer-nav__item--label {

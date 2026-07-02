@@ -72,6 +72,29 @@ export const Footer: GlobalConfig = {
       },
     },
     {
+      name: 'socialLinks',
+      type: 'array',
+      label: 'Social Links',
+      fields: [
+        {
+          name: 'platform',
+          type: 'select',
+          label: 'Platform',
+          options: [
+            { label: 'Facebook', value: 'facebook' },
+            { label: 'Twitter', value: 'twitter' },
+            { label: 'Instagram', value: 'instagram' },
+            { label: 'LinkedIn', value: 'linkedin' },
+          ],
+        },
+        {
+          name: 'url',
+          type: 'text',
+          label: 'URL',
+        },
+      ],
+    },
+    {
       name: 'legal',
       type: 'group',
       label: 'Legal Pages',

@@ -1,23 +1,25 @@
 'use client'
 import React from 'react'
 import Copyright from './Copyright'
+import Legal from './Legal'
+import SocialLinks from './SocialLinks'
 
 import type { Footer as FooterType } from '@/payload-types'
-import Legal from './Legal'
 
 import './info.css'
 
 interface FooterInfoProps {
-  data: FooterType['legal']
+  legal: FooterType['legal']
+  className?: string
+  socialLinks?: FooterType['socialLinks']
 }
 
-const FooterInfo: React.FC<FooterInfoProps> = ({ data }) => {
+export const FooterInfo: React.FC<FooterInfoProps> = ({ legal, className, socialLinks }) => {
   return (
-    <div className="footer-info">
+    <div className={`footer-info ${className || ''}`}>
       <Copyright />
-      <Legal termsOfService={data?.termsOfService} privacyPolicy={data?.privacyPolicy} />
+      <Legal termsOfService={legal?.termsOfService} privacyPolicy={legal?.privacyPolicy} />
+      {socialLinks && socialLinks.length > 0 && <SocialLinks links={socialLinks} />}
     </div>
   )
 }
-
-export default FooterInfo
