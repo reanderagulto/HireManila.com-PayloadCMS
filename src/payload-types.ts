@@ -1745,6 +1745,13 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
+  socialLinks?:
+    | {
+        platform?: ('facebook' | 'twitter' | 'instagram' | 'linkedin') | null;
+        url?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   legal?: {
     termsOfService?: (number | null) | Page;
     privacyPolicy?: (number | null) | Page;
@@ -1822,6 +1829,13 @@ export interface FooterSelect<T extends boolean = true> {
                   };
               id?: T;
             };
+        id?: T;
+      };
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
         id?: T;
       };
   legal?:
