@@ -118,6 +118,14 @@ export const Pages: CollectionConfig<'pages'> = {
       },
     },
     slugField(),
+    {
+      name: 'showTitleOnContent',
+      type: 'checkbox',
+      admin: {
+        position: 'sidebar',
+      },
+      defaultValue: true,
+    },
   ],
   hooks: {
     afterChange: [revalidatePage],

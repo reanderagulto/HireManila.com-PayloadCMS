@@ -1,0 +1,9 @@
+@reference "../../app/(frontend)/globals.css";
+
+.content {
+  @apply pt-[2.5rem] pb-[5rem] sm:pt-[4rem] sm:pb-[7.5rem];
+}
+
+.content--wrapper {
+  @apply grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-16;
+}
