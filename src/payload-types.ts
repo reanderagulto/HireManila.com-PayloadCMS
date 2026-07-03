@@ -216,6 +216,7 @@ export interface Page {
    */
   generateSlug?: boolean | null;
   slug: string;
+  showTitleOnContent?: boolean | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -1100,6 +1101,7 @@ export interface PagesSelect<T extends boolean = true> {
   publishedAt?: T;
   generateSlug?: T;
   slug?: T;
+  showTitleOnContent?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;

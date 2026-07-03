@@ -6,8 +6,6 @@ const config = {
         DEFAULT: {
           css: [
             {
-              '--tw-prose-body': 'var(--text)',
-              '--tw-prose-headings': 'var(--text)',
               h1: {
                 fontWeight: 'normal',
                 marginBottom: '0.25em',

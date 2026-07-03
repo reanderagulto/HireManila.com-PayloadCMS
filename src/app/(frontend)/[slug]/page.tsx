@@ -67,7 +67,12 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { hero, layout } = page
 
   return (
-    <article className="pb-24">
+    <article>
+      {page.showTitleOnContent && (
+        <div className="container site-header">
+          <h1>{page.title}</h1>
+        </div>
+      )}
       <PageClient />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
