@@ -16,56 +16,87 @@ export const hero: Field = {
     {
       name: 'type',
       type: 'select',
-      defaultValue: 'lowImpact',
-      label: 'Type',
+      label: 'Banner Type',
+      defaultValue: 'default',
+      required: true,
       options: [
         {
-          label: 'None',
-          value: 'none',
+          label: 'Default (Full Width)',
+          value: 'default',
         },
         {
-          label: 'High Impact',
-          value: 'highImpact',
+          label: 'Banner with Media',
+          value: 'withMedia',
         },
         {
-          label: 'Medium Impact',
-          value: 'mediumImpact',
-        },
-        {
-          label: 'Low Impact',
-          value: 'lowImpact',
+          label: 'Banner with Form',
+          value: 'withForm',
         },
       ],
+    },
+    {
+      name: 'heroMedia',
+      label: 'Hero Media',
+      type: 'upload',
+      relationTo: 'media',
+      admin: {
+        condition: (_, siblingData) => {
+          return siblingData?.type === 'withMedia'
+        },
+      },
+    },
+    {
+      name: 'form',
+      label: 'Banner Form',
+      type: 'relationship',
+      relationTo: 'forms',
+      admin: {
+        condition: (_, siblingData) => {
+          return siblingData?.type === 'withForm'
+        },
+      },
+    },
+    {
+      name: 'title',
+      type: 'text',
       required: true,
     },
     {
       name: 'richText',
+      label: 'Description',
       type: 'richText',
       editor: lexicalEditor({
-        features: ({ rootFeatures }) => {
-          return [
-            ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }),
-            FixedToolbarFeature(),
-            InlineToolbarFeature(),
-          ]
-        },
+        features: ({ rootFeatures }) => [
+          ...rootFeatures,
+          HeadingFeature({
+            enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+          }),
+          FixedToolbarFeature(),
+          InlineToolbarFeature(),
+        ],
       }),
-      label: false,
     },
-    linkGroup({
-      overrides: {
-        maxRows: 2,
-      },
-    }),
     {
-      name: 'media',
-      type: 'upload',
-      admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
-      },
-      relationTo: 'media',
-      required: true,
+      name: 'ctaGroup',
+      label: 'CTA Button',
+      type: 'group',
+      fields: [
+        {
+          name: 'label',
+          type: 'text',
+          admin: {
+            width: '50%',
+          },
+        },
+        {
+          name: 'url',
+          label: 'URL',
+          type: 'text',
+          admin: {
+            width: '50%',
+          },
+        },
+      ],
     },
   ],
   label: false,
