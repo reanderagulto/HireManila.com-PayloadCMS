@@ -1,0 +1,5 @@
+@reference "../../app/(frontend)/globals.css";
+
+.hero-default {
+  @apply py-10 text-center lg:py-[3.5rem];
+}

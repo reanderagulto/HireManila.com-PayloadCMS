@@ -1,0 +1,21 @@
+@reference "../../app/(frontend)/globals.css";
+
+.hero-media {
+  @apply py-10;
+}
+
+.hero-media__wrapper {
+  @apply flex flex-wrap flex-col gap-8 items-center justify-between lg:flex-row;
+}
+
+.hero-media__text-container {
+  @apply w-full shrink grow-0 lg:w-[42.2%];
+}
+
+.hero-media__media-container {
+  @apply w-full h-[420px] mx-auto shrink-0 lg:w-[28rem] lg:max-w-none;
+}
+
+.hero-media__media-container picture img {
+  @apply w-full h-full object-cover object-center;
+}
