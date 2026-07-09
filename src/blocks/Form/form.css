@@ -1,0 +1,17 @@
+@reference "../../app/(frontend)/globals.css";
+
+.form {
+  @apply pt-6 pb-10 px-10;
+}
+
+.form__container {
+  @apply flex gap-x-2 gap-y-1 flex-wrap;
+}
+
+.form__field--wrapper {
+  @apply flex flex-wrap gap-x-2 gap-y-1;
+}
+
+.form__field--input {
+  @apply w-full shrink;
+}

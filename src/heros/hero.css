@@ -1,0 +1,29 @@
+@reference "../app/(frontend)/globals.css";
+
+.hero {
+  @apply py-10 overflow-hidden;
+}
+
+.hero__wrapper {
+  @apply flex flex-wrap flex-col gap-10 items-center justify-between lg:flex-row lg:gap-0 lg:flex-nowrap;
+}
+
+.hero__text-container {
+  @apply w-full shrink grow-0 lg:w-[calc(38rem-20px)];
+}
+
+.hero__description .payload-richtext > * {
+  @apply text-[1rem] lg:text-[1.125rem];
+}
+
+.hero__cta {
+  @apply mt-5;
+}
+
+.hero__term .payload-richtext > p {
+  @apply mb-0 pt-2 text-neutral-400 text-center text-[.625rem] leading-[.875rem];
+}
+
+.hero__term .payload-richtext > p > a {
+  @apply text-primary-500;
+}

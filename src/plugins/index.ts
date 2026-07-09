@@ -23,6 +23,67 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
   return doc?.slug ? `${url}/${doc.slug}` : url
 }
 
+const hiddenFormFieldBlock = {
+  slug: 'hidden',
+  fields: [
+    {
+      type: 'row',
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          label: 'Name (lowercase, no special characters)',
+          required: true,
+          admin: {
+            width: '50%',
+          },
+        },
+        {
+          name: 'label',
+          type: 'text',
+          label: 'Label',
+          localized: true,
+          admin: {
+            width: '50%',
+          },
+        },
+      ],
+    },
+    {
+      type: 'row',
+      fields: [
+        {
+          name: 'width',
+          type: 'number',
+          label: 'Field Width (percentage)',
+          defaultValue: 100,
+          admin: {
+            width: '50%',
+          },
+        },
+        {
+          name: 'defaultValue',
+          type: 'text',
+          label: 'Default Value',
+          localized: true,
+          admin: {
+            width: '50%',
+          },
+        },
+      ],
+    },
+    {
+      name: 'required',
+      type: 'checkbox',
+      label: 'Required',
+    },
+  ],
+  labels: {
+    plural: 'Hidden Fields',
+    singular: 'Hidden',
+  },
+} as any
+
 export const plugins: Plugin[] = [
   redirectsPlugin({
     collections: ['pages', 'posts'],
@@ -57,25 +118,67 @@ export const plugins: Plugin[] = [
   formBuilderPlugin({
     fields: {
       payment: false,
+      hidden: hiddenFormFieldBlock,
     },
     formOverrides: {
       fields: ({ defaultFields }) => {
-        return defaultFields.map((field) => {
-          if ('name' in field && field.name === 'confirmationMessage') {
-            return {
-              ...field,
-              editor: lexicalEditor({
-                features: ({ rootFeatures }) => {
-                  return [
-                    ...rootFeatures,
-                    FixedToolbarFeature(),
-                    HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }),
-                  ]
-                },
-              }),
-            }
+        return defaultFields.flatMap((field) => {
+          if ('name' in field && field.name === 'title') {
+            return [
+              field,
+              {
+                name: 'formstackId',
+                type: 'text',
+                label: 'Formstack ID',
+              },
+            ]
           }
-          return field
+
+          if ('name' in field && field.name === 'fields') {
+            const blocksField = field as typeof field & { blocks?: Array<any> }
+
+            return [
+              {
+                ...field,
+                blocks: (blocksField.blocks || []).map((block: any) => {
+                  if (!block || typeof block !== 'object' || !Array.isArray(block.fields)) {
+                    return block
+                  }
+
+                  return {
+                    ...block,
+                    fields: [
+                      {
+                        name: 'formstackFieldId',
+                        type: 'text',
+                        label: 'Formstack Field ID',
+                      },
+                      ...block.fields,
+                    ],
+                  }
+                }),
+              },
+            ]
+          }
+
+          if ('name' in field && field.name === 'confirmationMessage') {
+            return [
+              {
+                ...field,
+                editor: lexicalEditor({
+                  features: ({ rootFeatures }) => {
+                    return [
+                      ...rootFeatures,
+                      FixedToolbarFeature(),
+                      HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }),
+                    ]
+                  },
+                }),
+              },
+            ]
+          }
+
+          return [field]
         })
       },
     },
