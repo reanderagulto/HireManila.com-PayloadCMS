@@ -7,33 +7,45 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
-import { linkGroup } from '../../fields/linkGroup'
-
 export const CallToAction: Block = {
   slug: 'cta',
   interfaceName: 'CallToActionBlock',
   fields: [
     {
+      name: 'title',
+      type: 'text',
+      required: true,
+      label: 'Title',
+      defaultValue: 'Find and hire the best talents in the Philippines. ',
+    },
+    {
       name: 'richText',
       type: 'richText',
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
-          return [
-            ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }),
-            FixedToolbarFeature(),
-            InlineToolbarFeature(),
-          ]
+          return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()]
         },
       }),
-      label: false,
+      label: 'Description',
     },
-    linkGroup({
-      appearances: ['default', 'outline'],
-      overrides: {
-        maxRows: 2,
-      },
-    }),
+    {
+      name: 'buttonGroup',
+      type: 'group',
+      label: 'Button Info',
+      fields: [
+        {
+          name: 'label',
+          type: 'text',
+          defaultValue: 'Request free consultation',
+        },
+        {
+          name: 'url',
+          type: 'text',
+          label: 'URL',
+          defaultValue: '#',
+        },
+      ],
+    },
   ],
   labels: {
     plural: 'Calls to Action',

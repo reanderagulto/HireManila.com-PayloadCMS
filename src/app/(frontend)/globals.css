@@ -18,11 +18,11 @@
 @source inline("bg-warning/30");
 
 @theme {
-  --breakpoint-sm: 540px;
-  --breakpoint-md: 640px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-2xl: 1440px;
+  --breakpoint-sm: 33.75rem;
+  --breakpoint-md: 40rem;
+  --breakpoint-lg: 62rem;
+  --breakpoint-xl: 75rem;
+  --breakpoint-2xl: 90rem;
 
   --font-default: var(--font-inter);
   --font-title: var(--font-outfit);
@@ -243,30 +243,34 @@
   }
 
   h1 {
-    @apply text-[2.5rem] lg:text-[4rem] leading-[1.12] tracking-[-0.08rem];
+    @apply text-[2.5rem] sm:text-[4rem] leading-[1.12] tracking-[-0.08rem];
   }
 
   h2 {
-    @apply text-[2rem] leading-10 lg:text-[2.75rem] lg:leading-[3.5rem];
+    @apply text-[2rem] leading-10 sm:text-[2.75rem] sm:leading-[3.5rem];
   }
 
   h3 {
-    @apply text-[1.5rem] leading-[3rem] lg:text-[2.5rem];
+    @apply text-[1.5rem] leading-[3rem] sm:text-[2.5rem];
   }
 
   h4 {
-    @apply text-[1.25rem] leading-normal lg:text-[2rem] lg:leading-[1.25];
+    @apply text-[1.25rem] leading-normal sm:text-[2rem] sm:leading-[1.25];
   }
 
   h5 {
-    @apply text-[1.125rem] leading-normal lg:text-[1.5rem];
+    @apply text-[1.125rem] leading-normal sm:text-[1.5rem];
   }
 
   h6 {
-    @apply text-[1rem] leading-[1.2] lg:text-[1.25rem];
+    @apply text-[1rem] leading-[1.2] sm:text-[1.25rem];
   }
 
   p {
     @apply text-[1rem] leading-[1.55] tracking-normal mb-6;
+  }
+
+  a {
+    @apply wrap-break-word;
   }
 }
