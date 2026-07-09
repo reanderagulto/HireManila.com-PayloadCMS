@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import './default.css'
 import Link from 'next/link'
 
-export const HeroDefault: React.FC<Page['hero']> = ({ title, richText, ctaGroup }) => {
+const HeroDefault: React.FC<Page['hero']> = ({ title, richText, ctaGroup }) => {
   return (
     <div className="hero-default">
       <div className="container">
@@ -19,7 +19,7 @@ export const HeroDefault: React.FC<Page['hero']> = ({ title, richText, ctaGroup 
               <RichText data={richText} />
             </div>
           )}
-          {ctaGroup !== undefined && ctaGroup.label !== '' && ctaGroup?.url !== '' && (
+          {ctaGroup !== undefined && ctaGroup.label !== null && ctaGroup?.url !== null && (
             <Button size="xl" variant="positive">
               <Link href={ctaGroup.url}>{ctaGroup.label}</Link>
             </Button>
@@ -29,3 +29,5 @@ export const HeroDefault: React.FC<Page['hero']> = ({ title, richText, ctaGroup 
     </div>
   )
 }
+
+export default HeroDefault

@@ -5,9 +5,7 @@ import * as LabelPrimitive from '@radix-ui/react-label'
 import { type VariantProps, cva } from 'class-variance-authority'
 import * as React from 'react'
 
-const labelVariants = cva(
-  'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-)
+const labelVariants = cva('block w-full text-[0.75rem] text-foreground font-[500] leading-[1rem]')
 
 const Label: React.FC<
   { ref?: React.Ref<HTMLLabelElement> } & React.ComponentProps<typeof LabelPrimitive.Root> &

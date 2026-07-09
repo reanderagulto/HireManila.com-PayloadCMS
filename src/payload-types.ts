@@ -161,7 +161,41 @@ export interface Page {
   hero: {
     type: 'default' | 'withMedia' | 'withForm';
     heroMedia?: (number | null) | Media;
-    form?: (number | null) | Form;
+    form?: {
+      form?: (number | null) | Form;
+      title?: string | null;
+      description?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      showTerm?: boolean | null;
+      siteTermText?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+    };
     title: string;
     richText?: {
       root: {
@@ -329,9 +363,11 @@ export interface FolderInterface {
 export interface Form {
   id: number;
   title: string;
+  formstackId?: string | null;
   fields?:
     | (
         | {
+            formstackFieldId?: string | null;
             name: string;
             label?: string | null;
             width?: number | null;
@@ -342,6 +378,7 @@ export interface Form {
             blockType: 'checkbox';
           }
         | {
+            formstackFieldId?: string | null;
             name: string;
             label?: string | null;
             width?: number | null;
@@ -351,6 +388,7 @@ export interface Form {
             blockType: 'country';
           }
         | {
+            formstackFieldId?: string | null;
             name: string;
             label?: string | null;
             width?: number | null;
@@ -360,6 +398,7 @@ export interface Form {
             blockType: 'email';
           }
         | {
+            formstackFieldId?: string | null;
             message?: {
               root: {
                 type: string;
@@ -380,6 +419,7 @@ export interface Form {
             blockType: 'message';
           }
         | {
+            formstackFieldId?: string | null;
             name: string;
             label?: string | null;
             width?: number | null;
@@ -390,6 +430,7 @@ export interface Form {
             blockType: 'number';
           }
         | {
+            formstackFieldId?: string | null;
             name: string;
             label?: string | null;
             width?: number | null;
@@ -408,6 +449,7 @@ export interface Form {
             blockType: 'select';
           }
         | {
+            formstackFieldId?: string | null;
             name: string;
             label?: string | null;
             width?: number | null;
@@ -417,6 +459,7 @@ export interface Form {
             blockType: 'state';
           }
         | {
+            formstackFieldId?: string | null;
             name: string;
             label?: string | null;
             width?: number | null;
@@ -427,6 +470,7 @@ export interface Form {
             blockType: 'text';
           }
         | {
+            formstackFieldId?: string | null;
             name: string;
             label?: string | null;
             width?: number | null;
@@ -435,6 +479,17 @@ export interface Form {
             id?: string | null;
             blockName?: string | null;
             blockType: 'textarea';
+          }
+        | {
+            formstackFieldId?: string | null;
+            name: string;
+            label?: string | null;
+            width?: number | null;
+            defaultValue?: string | null;
+            required?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hidden';
           }
       )[]
     | null;
@@ -1047,7 +1102,15 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         type?: T;
         heroMedia?: T;
-        form?: T;
+        form?:
+          | T
+          | {
+              form?: T;
+              title?: T;
+              description?: T;
+              showTerm?: T;
+              siteTermText?: T;
+            };
         title?: T;
         richText?: T;
         ctaGroup?:
@@ -1355,12 +1418,14 @@ export interface RedirectsSelect<T extends boolean = true> {
  */
 export interface FormsSelect<T extends boolean = true> {
   title?: T;
+  formstackId?: T;
   fields?:
     | T
     | {
         checkbox?:
           | T
           | {
+              formstackFieldId?: T;
               name?: T;
               label?: T;
               width?: T;
@@ -1372,6 +1437,7 @@ export interface FormsSelect<T extends boolean = true> {
         country?:
           | T
           | {
+              formstackFieldId?: T;
               name?: T;
               label?: T;
               width?: T;
@@ -1382,6 +1448,7 @@ export interface FormsSelect<T extends boolean = true> {
         email?:
           | T
           | {
+              formstackFieldId?: T;
               name?: T;
               label?: T;
               width?: T;
@@ -1392,6 +1459,7 @@ export interface FormsSelect<T extends boolean = true> {
         message?:
           | T
           | {
+              formstackFieldId?: T;
               message?: T;
               id?: T;
               blockName?: T;
@@ -1399,6 +1467,7 @@ export interface FormsSelect<T extends boolean = true> {
         number?:
           | T
           | {
+              formstackFieldId?: T;
               name?: T;
               label?: T;
               width?: T;
@@ -1410,6 +1479,7 @@ export interface FormsSelect<T extends boolean = true> {
         select?:
           | T
           | {
+              formstackFieldId?: T;
               name?: T;
               label?: T;
               width?: T;
@@ -1429,6 +1499,7 @@ export interface FormsSelect<T extends boolean = true> {
         state?:
           | T
           | {
+              formstackFieldId?: T;
               name?: T;
               label?: T;
               width?: T;
@@ -1439,6 +1510,7 @@ export interface FormsSelect<T extends boolean = true> {
         text?:
           | T
           | {
+              formstackFieldId?: T;
               name?: T;
               label?: T;
               width?: T;
@@ -1450,6 +1522,19 @@ export interface FormsSelect<T extends boolean = true> {
         textarea?:
           | T
           | {
+              formstackFieldId?: T;
+              name?: T;
+              label?: T;
+              width?: T;
+              defaultValue?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        hidden?:
+          | T
+          | {
+              formstackFieldId?: T;
               name?: T;
               label?: T;
               width?: T;

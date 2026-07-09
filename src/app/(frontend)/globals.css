@@ -159,7 +159,7 @@
 
 :root {
   --background: var(--color-white);
-  --foreground: var(--color-black);
+  --foreground: var(--color-neutral-500);
   --card: var(--color-white);
   --card-foreground: var(--color-black);
   --popover: var(--color-white);
@@ -175,7 +175,7 @@
   --destructive: var(--color-destructive-500);
   --destructive-foreground: var(--color-destructive-400);
   --border: var(--color-neutral-900);
-  --input: var(--color-neutral-400);
+  --input: var(--color-neutral-300);
   --ring: var(--color-neutral-300);
   --chart-1: var(--color-destructive-500);
   --chart-2: var(--color-primary-500);

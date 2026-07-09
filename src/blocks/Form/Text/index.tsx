@@ -8,6 +8,8 @@ import React from 'react'
 import { Error } from '../Error'
 import { Width } from '../Width'
 
+import '../form.css'
+
 export const Text: React.FC<
   TextField & {
     errors: Partial<FieldErrorsImpl>
@@ -15,18 +17,26 @@ export const Text: React.FC<
   }
 > = ({ name, defaultValue, errors, label, register, required, width }) => {
   return (
-    <Width width={width}>
-      <Label htmlFor={name}>
-        {label}
+    <Width width={width} className="form__field--wrapper">
+      <div className="form__field--input">
+        <Label htmlFor={name}>
+          {label}
 
-        {required && (
-          <span className="required">
-            * <span className="sr-only">(required)</span>
-          </span>
-        )}
-      </Label>
-      <Input defaultValue={defaultValue} id={name} type="text" {...register(name, { required })} />
-      {errors[name] && <Error name={name} />}
+          {required && (
+            <span className="required">
+              * <span className="sr-only">(required)</span>
+            </span>
+          )}
+        </Label>
+        <Input
+          className="my-1"
+          defaultValue={defaultValue}
+          id={name}
+          type="text"
+          {...register(name, { required })}
+        />
+        {errors[name] && <Error name={name} />}
+      </div>
     </Width>
   )
 }

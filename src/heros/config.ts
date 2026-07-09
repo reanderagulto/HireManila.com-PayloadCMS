@@ -47,14 +47,61 @@ export const hero: Field = {
     },
     {
       name: 'form',
-      label: 'Banner Form',
-      type: 'relationship',
-      relationTo: 'forms',
+      label: 'Form Information',
+      type: 'group',
       admin: {
         condition: (_, siblingData) => {
           return siblingData?.type === 'withForm'
         },
       },
+      fields: [
+        {
+          name: 'form',
+          label: 'Form',
+          type: 'relationship',
+          relationTo: 'forms',
+        },
+        {
+          name: 'title',
+          label: 'Title',
+          type: 'text',
+        },
+        {
+          name: 'description',
+          label: 'Description',
+          type: 'richText',
+          editor: lexicalEditor({
+            features: ({ rootFeatures }) => [
+              ...rootFeatures,
+              FixedToolbarFeature(),
+              InlineToolbarFeature(),
+            ],
+          }),
+        },
+        {
+          name: 'showTerm',
+          label: 'Show Site Terms',
+          type: 'checkbox',
+          defaultValue: true,
+        },
+        {
+          name: 'siteTermText',
+          label: 'Site Term',
+          type: 'richText',
+          editor: lexicalEditor({
+            features: ({ rootFeatures }) => [
+              ...rootFeatures,
+              FixedToolbarFeature(),
+              InlineToolbarFeature(),
+            ],
+          }),
+          admin: {
+            condition: (_, siblingData) => {
+              return siblingData?.showTerm === true
+            },
+          },
+        },
+      ],
     },
     {
       name: 'title',
