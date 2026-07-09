@@ -13,7 +13,6 @@ import '../hero.css'
 import './hero-form.css'
 
 const WithForm: React.FC<Page['hero']> = ({ title, richText, form, ctaGroup }) => {
-  console.log(form?.showTerm, form?.siteTermText)
   return (
     <div className="hero">
       <div className="container">

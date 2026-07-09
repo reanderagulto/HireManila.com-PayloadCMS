@@ -2,20 +2,43 @@ import React from 'react'
 
 import type { CallToActionBlock as CTABlockProps } from '@/payload-types'
 
-import RichText from '@/components/RichText'
-import { CMSLink } from '@/components/Link'
+import { RichText } from '@payloadcms/richtext-lexical/react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
-export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText }) => {
+import './cta.css'
+
+export const CallToActionBlock: React.FC<CTABlockProps> = ({ title, richText, buttonGroup }) => {
   return (
-    <div className="container">
-      <div className="bg-card rounded border-border border p-4 flex flex-col gap-8 md:flex-row md:justify-between md:items-center">
-        <div className="max-w-[48rem] flex items-center">
-          {richText && <RichText className="mb-0" data={richText} enableGutter={false} />}
-        </div>
-        <div className="flex flex-col gap-8">
-          {(links || []).map(({ link }, i) => {
-            return <CMSLink key={i} size="lg" {...link} />
-          })}
+    <div className="cta">
+      <div className="container">
+        <div className="cta__wrapper">
+          <div className="relative z-2">
+            {(title !== null || title !== '') && <h4 className="cta__header">{title}</h4>}
+            {richText && (
+              <div className="cta__description">
+                <RichText data={richText} />
+              </div>
+            )}
+            {buttonGroup?.label && buttonGroup?.url && (
+              <Button size="lg" variant="white" className="cta__button-group">
+                {buttonGroup.label}
+              </Button>
+            )}
+          </div>
+          <div className="block absolute top-[8.5rem] right-[-2.19rem] w-[4.375rem] sm:top-12 sm:right-5 xl:top-6 xl:right-8 xl:w-[6.3125rem] z-1">
+            <Image src="/images/cta-graph1.png" alt="infograph1" width={101} height={101} />
+          </div>
+          <div className="z-1 block relative mt-[1.94rem] mx-auto w-[14.68rem] right-0 sm:absolute sm:-bottom-5 sm:right-[1.44rem] sm:w-[15.75rem] lg:ml-2 lg:right-[7rem] lg:bottom-0">
+            <Image src="/images/cta-graph2.png" alt="infograph2" width={330} height={217} />
+          </div>
+          <div className="z-1 hidden absolute sm:block sm:bottom-0 sm:left-0">
+            <Image src="/images/cta-graph3.png" alt="infograph3" width={77} height={75} />
+          </div>
+          <div className="z-1 block absolute left-0 bottom-[4.95rem] sm:hidden">
+            <Image src="/images/cta-graph4.png" alt="infograph4 " width={39} height={76} />
+          </div>
         </div>
       </div>
     </div>

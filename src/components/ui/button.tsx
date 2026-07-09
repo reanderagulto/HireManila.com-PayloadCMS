@@ -5,10 +5,10 @@ import * as React from 'react'
 
 const buttonVariants = cva(
   [
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[4px] border border-transparent',
+    'inline-block gap-2 whitespace-nowrap rounded-[4px] border border-transparent',
     'font-semibold tracking-[-0.01em] transition-all duration-200',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring',
-    'disabled:pointer-events-none disabled:opacity-60',
+    'disabled:pointer-events-none disabled:opacity-60 whitespace-normal',
   ].join(' '),
   {
     variants: {
@@ -23,7 +23,7 @@ const buttonVariants = cva(
           'bg-destructive-500 text-white shadow-sm hover:bg-destructive-600 active:bg-destructive-700',
         neutral: 'bg-neutral-900 text-white shadow-sm hover:bg-neutral-800 active:bg-neutral-700',
         white:
-          'border-neutral-200 bg-white text-neutral-700 shadow-sm hover:bg-neutral-50 active:bg-neutral-100',
+          'border-neutral-200 bg-white text-neutral-500 shadow-sm hover:bg-neutral-50 active:bg-neutral-700',
         outline:
           'border-neutral-300 bg-transparent text-neutral-700 shadow-sm hover:bg-neutral-100 hover:text-neutral-900 active:bg-neutral-200',
         ghost:
@@ -32,11 +32,11 @@ const buttonVariants = cva(
       },
       size: {
         clear: '',
-        default: 'h-10 px-4 py-2 text-sm',
-        sm: 'h-8 px-3 text-sm',
-        md: 'h-9 px-4 text-sm',
-        lg: 'h-12 px-5 text-base',
-        xl: 'h-14 px-6 text-base',
+        default: 'px-4 py-[0.625rem] text-[0.875rem]',
+        sm: 'py-2 px-3 text-[0.75rem]',
+        md: 'px-4 py-[0.625rem] text-[1rem]',
+        lg: 'px-4 py-3 text-[1rem]',
+        xl: 'px-6 py-4 text-[1.125rem]',
         icon: 'size-10 p-0',
       },
     },

@@ -1,11 +1,11 @@
 @reference "../../app/(frontend)/globals.css";
 
 .hero__form {
-  @apply w-full mx-auto bg-primary-700 overflow-hidden sm:w-[28rem] rounded-[1rem] lg:mx-0;
+  @apply w-full mx-auto bg-primary-700 overflow-hidden sm:w-[28rem] rounded-[1rem] lg:mx-0 shadow-[0_4px_0_0_#0B1324];
 }
 
 .hero__form--container {
-  @apply rounded-[16px] border border-neutral-900 bg-primary-50 shadow-[0_4px_0_0_#0B1324] overflow-hidden;
+  @apply rounded-[16px] border border-neutral-900 bg-primary-50 overflow-hidden;
 }
 
 .hero__form--header {
