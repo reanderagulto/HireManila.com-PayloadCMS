@@ -5,7 +5,7 @@
 }
 
 .archive__header {
-  @apply flex flex-wrap items-end justify-between lg:mb-[5rem];
+  @apply flex flex-wrap items-end justify-between mb-[5rem] gap-4;
 }
 
 .archive__header--content .payload-richtext > p,
