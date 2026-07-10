@@ -26,6 +26,7 @@ const buttonVariants = cva(
           'border-neutral-200 bg-white text-neutral-500 shadow-sm hover:bg-neutral-50 active:bg-neutral-700',
         outline:
           'border-neutral-300 bg-transparent text-neutral-700 shadow-sm hover:bg-neutral-100 hover:text-neutral-900 active:bg-neutral-200',
+        primaryOutline: 'border-secondary-green-500 bg-transparent text-',
         ghost:
           'border-transparent bg-transparent text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 active:bg-neutral-200',
         link: 'h-auto rounded-none border-0 bg-transparent p-0 text-primary-500 underline-offset-4 hover:underline',
@@ -39,7 +40,7 @@ const buttonVariants = cva(
         xl: 'px-6 py-4 text-[1.125rem]',
         icon: 'size-10 p-0',
       },
-    },
+    }, 
     defaultVariants: {
       variant: 'default',
       size: 'default',

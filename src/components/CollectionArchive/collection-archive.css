@@ -1,0 +1,9 @@
+@reference "../../app/(frontend)/globals.css";
+
+.collection-archive {
+  @apply flex flex-wrap items-stretch flex-col sm:flex-row gap-4;
+}
+
+.collection-archive__list-item {
+  @apply w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)];
+}

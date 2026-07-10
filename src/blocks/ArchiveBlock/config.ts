@@ -12,19 +12,31 @@ export const Archive: Block = {
   interfaceName: 'ArchiveBlock',
   fields: [
     {
-      name: 'introContent',
-      type: 'richText',
-      editor: lexicalEditor({
-        features: ({ rootFeatures }) => {
-          return [
-            ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }),
-            FixedToolbarFeature(),
-            InlineToolbarFeature(),
-          ]
+      name: 'introSection',
+      type: 'group',
+      label: 'Intro Section',
+      fields: [
+        {
+          name: 'introContent',
+          type: 'richText',
+          editor: lexicalEditor({
+            features: ({ rootFeatures }) => {
+              return [
+                ...rootFeatures,
+                HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }),
+                FixedToolbarFeature(),
+                InlineToolbarFeature(),
+              ]
+            },
+          }),
+          label: 'Content',
         },
-      }),
-      label: 'Intro Content',
+        {
+          name: 'showArchiveLink',
+          type: 'checkbox',
+          label: 'Show Archive Link',
+        },
+      ],
     },
     {
       name: 'populateBy',
