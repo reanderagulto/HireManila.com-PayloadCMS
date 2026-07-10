@@ -118,3 +118,15 @@ export const InstagramIcon: React.FC<IconProps> = ({ size = 24, ...props }) => (
     </defs>
   </svg>
 )
+
+export const RightArrow: React.FC<IconProps> = ({ size = 24, ...props }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+    <path
+      d="M11.3333 5.83325L15.5 9.99992M15.5 9.99992L11.3333 14.1666M15.5 9.99992L5.5 9.99992"
+      stroke="#067D57"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></path>
+  </svg>
+)

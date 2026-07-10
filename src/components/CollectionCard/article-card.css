@@ -1,0 +1,42 @@
+@reference "../../app/(frontend)/globals.css";
+
+.article-card {
+  @apply overflow-hidden flex flex-col rounded-[1rem] border-[1.5px] border-neutral-900 bg-white shadow-[0_4px_#0b1324];
+}
+
+.article-card__thumbnail {
+  @apply relative w-full h-[12.5rem] overflow-hidden;
+}
+
+.article-card__thumbnail > div,
+.article-card__thumbnail > div > picture {
+  @apply block h-[12.5rem];
+}
+
+.article-card__thumbnail img {
+  @apply object-cover object-center w-full h-full;
+}
+
+.article-card__thumbnail .no-image {
+  @apply w-full h-[12.5rem] flex items-center justify-center bg-neutral-200 text-[18px] leading-1 text-neutral-900;
+}
+
+.article-card__tag-list {
+  @apply flex flex-wrap items-center gap-1 w-full;
+}
+
+.article-card__tag-list span {
+  @apply flex items-center justify-center px-2 h-[18px] text-[10px] font-[500] leading-[14px] text-neutral-400 rounded-[40px] border border-neutral-300;
+}
+
+.article-card__content {
+  @apply grow p-6 flex flex-col justify-between;
+}
+
+.article-card__content h6 {
+  @apply my-2;
+}
+
+.article-card__link {
+  @apply flex w-max items-center justify-start gap-2 text-[14px] leading-[1.42] font-[500] text-secondary-green-500;
+}

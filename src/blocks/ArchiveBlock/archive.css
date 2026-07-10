@@ -1,0 +1,14 @@
+@reference "../../app/(frontend)/globals.css";
+
+.archive {
+  @apply bg-primary-50 py-[4rem] sm:py-[5rem] lg:py-[7.5rem];
+}
+
+.archive__header {
+  @apply flex flex-wrap items-end justify-between lg:mb-[5rem];
+}
+
+.archive__header--content .payload-richtext > p,
+.archive__header--content .payload-richtext > h2 {
+  @apply mb-0;
+}
