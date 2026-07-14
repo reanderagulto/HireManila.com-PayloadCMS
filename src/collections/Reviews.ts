@@ -66,6 +66,7 @@ export const Reviews: CollectionConfig = {
     },
     slugField({
       position: undefined,
+      useAsSlug: 'name',
     }),
   ],
 }

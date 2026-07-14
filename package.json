@@ -54,6 +54,7 @@
     "react-dom": "19.2.6",
     "react-hook-form": "7.71.1",
     "sharp": "0.34.2",
+    "slug": "^11.0.1",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
@@ -67,6 +68,7 @@
     "@types/node": "22.19.9",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "@types/slug": "^5.0.9",
     "@vitejs/plugin-react": "4.5.2",
     "autoprefixer": "^10.4.19",
     "eslint": "^9.16.0",

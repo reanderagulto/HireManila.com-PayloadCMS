@@ -1,0 +1,18 @@
+@reference "../../app/(frontend)/globals.css";
+
+.partners {
+  @apply bg-primary-50 pt-[2.5rem] pb-[4rem] lg:pb-[5rem];
+}
+
+.partners__list {
+  @apply flex items-center justify-center flex-wrap;
+}
+
+.partners__logo {
+  @apply mx-[1.75rem] py-4 first:ml-0 last:mr-0;
+}
+
+.partners__header,
+.partners__header .payload-richtext > * {
+  @apply font-title text-[1.25rem] leading-[1.5rem] lg:leading-[1.75rem];
+}
