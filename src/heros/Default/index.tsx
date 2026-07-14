@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 
 import './default.css'
 import Link from 'next/link'
+import { ArrowRightOutlined } from '@/components/Icons'
 
 const HeroDefault: React.FC<Page['hero']> = ({ title, richText, ctaGroup }) => {
   return (
@@ -22,6 +23,7 @@ const HeroDefault: React.FC<Page['hero']> = ({ title, richText, ctaGroup }) => {
           {ctaGroup !== undefined && ctaGroup.label !== null && ctaGroup?.url !== null && (
             <Button size="xl" variant="positive">
               <Link href={ctaGroup.url}>{ctaGroup.label}</Link>
+              <ArrowRightOutlined />
             </Button>
           )}
         </div>

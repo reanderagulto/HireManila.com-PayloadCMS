@@ -221,7 +221,16 @@ export interface Page {
       url?: string | null;
     };
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | ReviewBlock | PartnersBlock)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | ReviewBlock
+    | PartnersBlock
+    | HPAdvantageBlock
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -925,6 +934,55 @@ export interface Partner {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HPAdvantageBlock".
+ */
+export interface HPAdvantageBlock {
+  image?: (number | null) | Media;
+  title?: string | null;
+  subtitle?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  ctaGroup?:
+    | {
+        image?: (number | null) | Media;
+        title?: string | null;
+        content?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hpAdvantage';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1242,6 +1300,7 @@ export interface PagesSelect<T extends boolean = true> {
         formBlock?: T | FormBlockSelect<T>;
         review?: T | ReviewBlockSelect<T>;
         partner?: T | PartnersBlockSelect<T>;
+        hpAdvantage?: T | HPAdvantageBlockSelect<T>;
       };
   meta?:
     | T
@@ -1363,6 +1422,26 @@ export interface PartnersBlockSelect<T extends boolean = true> {
   partnersText?: T;
   populateBy?: T;
   selectedPartner?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HPAdvantageBlock_select".
+ */
+export interface HPAdvantageBlockSelect<T extends boolean = true> {
+  image?: T;
+  title?: T;
+  subtitle?: T;
+  content?: T;
+  ctaGroup?:
+    | T
+    | {
+        image?: T;
+        title?: T;
+        content?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
