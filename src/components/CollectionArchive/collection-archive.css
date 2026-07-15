@@ -5,5 +5,5 @@
 }
 
 .collection-archive__list-item {
-  @apply w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)];
+  @apply w-full sm:grow sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)];
 }

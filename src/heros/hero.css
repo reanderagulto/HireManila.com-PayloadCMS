@@ -27,3 +27,7 @@
 .hero__term .payload-richtext > p > a {
   @apply text-primary-500;
 }
+
+.hero__text-container button {
+  @apply flex gap-2 w-max items-center;
+}

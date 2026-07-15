@@ -11,6 +11,7 @@ import Image from 'next/image'
 import { FormBlock } from '@/blocks/Form/Component'
 import '../hero.css'
 import './hero-form.css'
+import { ArrowRightOutlined } from '@/components/Icons'
 
 const WithForm: React.FC<Page['hero']> = ({ title, richText, form, ctaGroup }) => {
   return (
@@ -27,6 +28,7 @@ const WithForm: React.FC<Page['hero']> = ({ title, richText, form, ctaGroup }) =
             {ctaGroup?.label && ctaGroup?.url && (
               <Button size="xl" variant="positive" className="hero__cta">
                 <Link href={ctaGroup.url as string}>{ctaGroup.label}</Link>
+                <ArrowRightOutlined />
               </Button>
             )}
           </div>

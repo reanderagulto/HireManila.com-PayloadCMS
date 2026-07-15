@@ -1,0 +1,65 @@
+@reference "../../app/(frontend)/globals.css";
+
+.review-slider {
+  @apply mr-0 ml-[-.75rem] lg:ml-[-1.3rem] xl:mr-[calc(calc(100vw-1249px)/-2)] xl:ml-[-0.75rem];
+}
+
+.review-slider .splide__arrow {
+  @apply hidden;
+}
+
+.review-slider__nav {
+  @apply flex items-center justify-between gap-4;
+}
+
+.review-slider__nav .slide-nav {
+  @apply p-0 w-10 h-10 flex items-center justify-center border-2 border-neutral-200 hover:bg-transparent hover:border-neutral-200 focus:bg-transparent focus:border-neutral-200 focus-within:bg-transparent focus-within:border-neutral-200 active:bg-transparent active:border-neutral-200 disabled:bg-transparent disabled:border-neutral-200;
+}
+
+.review-slider__nav .slide-nav.active {
+  @apply border-secondary-green-500 hover:bg-transparent hover:border-secondary-green-500;
+}
+
+.review-slider__nav .slide-nav.active svg path {
+  @apply fill-secondary-green-500 stroke-secondary-green-500;
+}
+
+.review-slider .splide__track {
+  padding-left: 0 !important;
+}
+
+.review-slider .splide__slide {
+  @apply py-0 px-[.75rem];
+}
+
+.review-slider__item {
+  @apply relative bg-warning-50 border-[1.5px] border-neutral-900 rounded-[16px] py-8 px-6 h-full pt-8 pb-[7rem];
+}
+
+.review-slider__item-wrapper {
+  @apply flex flex-col items-start justify-between w-full;
+}
+
+.review-slider__item-content {
+  @apply mt-6 text-[18px] leading-[28px] text-neutral-500;
+}
+
+.review-slider__item-content .payload-richtext > * {
+  @apply mb-0;
+}
+
+.review-slider__item-name {
+  @apply flex items-center gap-4 w-full mt-12 absolute left-0 bottom-8 pl-8;
+}
+
+.review-slider__item-name h6 {
+  @apply mb-0 text-neutral-900 text-[14px] leading-[20px];
+}
+
+.review-slider__item-name p {
+  @apply mb-0 text-neutral-400 text-[14px] leading-[20px] font-title;
+}
+
+.review-slider__item-avatar {
+  @apply w-10 h-10 overflow-hidden;
+}

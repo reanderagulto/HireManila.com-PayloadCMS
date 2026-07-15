@@ -9,6 +9,7 @@ import Link from 'next/link'
 
 import '../hero.css'
 import './hero-media.css'
+import { ArrowRightOutlined } from '@/components/Icons'
 
 const WithMedia: React.FC<Page['hero']> = ({ title, richText, heroMedia, ctaGroup }) => {
   return (
@@ -25,6 +26,7 @@ const WithMedia: React.FC<Page['hero']> = ({ title, richText, heroMedia, ctaGrou
             {ctaGroup !== undefined && ctaGroup.label !== '' && ctaGroup?.url !== '' && (
               <Button size="xl" variant="positive" className="hero__cta">
                 <Link href={ctaGroup.url}>{ctaGroup.label}</Link>
+                <ArrowRightOutlined />
               </Button>
             )}
           </div>

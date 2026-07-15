@@ -1,4 +1,4 @@
-import type { Post, ArchiveBlock as ArchiveBlockProps } from '@/payload-types'
+import type { ArchiveBlock as ArchiveBlockProps, Post } from '@/payload-types'
 
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -47,11 +47,9 @@ export const ArchiveBlock: React.FC<
     posts = fetchedPosts.docs
   } else {
     if (selectedDocs?.length) {
-      const filteredSelectedPosts = selectedDocs.map((post) => {
+      posts = selectedDocs.map((post) => {
         if (typeof post.value === 'object') return post.value
       }) as Post[]
-
-      posts = filteredSelectedPosts
     }
   }
 

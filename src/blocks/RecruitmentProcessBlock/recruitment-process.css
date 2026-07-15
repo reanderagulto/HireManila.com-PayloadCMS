@@ -1,0 +1,29 @@
+@reference "../../app/(frontend)/globals.css";
+
+.recruitment {
+  @apply bg-primary-50 py-[7.5rem];
+}
+
+.recruitment__content {
+  @apply max-w-[max(66.67vw,960px)] mx-auto w-full;
+}
+
+.recruitment__content .payload-richtext > p {
+  @apply text-[1rem] leading-[1.5] mb-0 lg:text-[1.125rem];
+}
+
+.recruitment__list {
+  @apply flex flex-wrap items-stretch justify-center gap-6 mt-[5rem] mb-[3rem];
+}
+
+.recruitment__list--item {
+  @apply flex flex-col gap-[30px] py-8 px-6 border-[1.5px] border-neutral-900 bg-white rounded-2xl shadow-[0_4px_#0b1324] w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(calc(100%/3)-1.5rem)];
+}
+
+.recruitment__list--content h6 {
+  @apply text-[1.125rem] leading-[1.75rem] mb-4;
+}
+
+.recruitment__list--content .payload-richtext > * {
+  @apply text-[14px] leading-[1.42] text-neutral-500 mb-0;
+}

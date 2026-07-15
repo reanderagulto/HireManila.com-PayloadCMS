@@ -1,0 +1,21 @@
+@reference "../../app/(frontend)/globals.css";
+
+.review {
+  @apply py-[4rem] sm:pt-[5rem] sm:pb-[7.5rem] overflow-hidden;
+}
+
+.review__wrapper {
+  @apply pt-[3.5rem] mr-[-.75rem] pr-0 2xl:pr-[6rem] 2xl:mr-auto;
+}
+
+.review__header {
+  @apply flex items-end justify-start flex-wrap gap-6 lg:justify-between;
+}
+
+.review__header--section .payload-richtext h2 {
+  @apply mb-0;
+}
+
+.review__header--section .payload-richtext p {
+  @apply mb-2 text-neutral-900 font-title;
+}

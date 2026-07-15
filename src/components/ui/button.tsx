@@ -9,6 +9,7 @@ const buttonVariants = cva(
     'font-semibold tracking-[-0.01em] transition-all duration-200',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring',
     'disabled:pointer-events-none disabled:opacity-60 whitespace-normal',
+    'cursor-pointer',
   ].join(' '),
   {
     variants: {
@@ -25,7 +26,7 @@ const buttonVariants = cva(
         white:
           'border-neutral-200 bg-white text-neutral-500 shadow-sm hover:bg-neutral-50 active:bg-neutral-700',
         outline:
-          'border-neutral-300 bg-transparent text-neutral-700 shadow-sm hover:bg-neutral-100 hover:text-neutral-900 active:bg-neutral-200',
+          'border-secondary-green-500 bg-transparent text-secondary-green-500 shadow-sm hover:bg-secondary-green-500 hover:text-white active:bg-secondary-green-500',
         primaryOutline: 'border-secondary-green-500 bg-transparent text-',
         ghost:
           'border-transparent bg-transparent text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 active:bg-neutral-200',

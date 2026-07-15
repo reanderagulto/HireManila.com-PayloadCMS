@@ -1,9 +1,9 @@
 import { cn } from '@/utilities/ui'
 import React from 'react'
 
-import './collection-archive.css'
-
 import { Card, CardPostData } from '@/components/CollectionCard'
+
+import './collection-archive.css'
 
 export type Props = {
   posts: CardPostData[]
