@@ -1,0 +1,37 @@
+@reference "../../app/(frontend)/globals.css";
+
+.recruitment-advantage {
+  @apply my-[3rem] lg:my-[7.5rem] bg-white;
+}
+
+.recruitment-advantage__header {
+  @apply w-full mb-6 text-center lg:text-left;
+}
+
+.recruitment-advantage__content {
+  @apply flex flex-col justify-between items-center lg:flex-row;
+}
+
+.recruitment-advantage__image {
+  @apply w-full mx-auto pt-8 lg:w-[38rem] lg:mx-0 lg:pt-0;
+}
+
+.recruitment-advantage__text {
+  @apply w-full pt-[2.5rem] sm:mx-auto lg:ml-[2.5rem] xl:ml-[7.5rem] lg:w-[32.5rem] lg:pt-[1.37rem] mx-0;
+}
+
+.recruitment-advantage__text .payload-richtext > h6 {
+  @apply mb-2;
+}
+
+.recruitment-advantage__text .payload-richtext > p {
+  @apply text-[1rem] leading-[1.5] text-neutral-500 my-0;
+}
+
+.recruitment-advantage__text .payload-richtext > hr {
+  @apply text-neutral-100 border-neutral-100 bg-neutral-100 my-6;
+}
+
+.recruitment-advantage__text button {
+  @apply mt-12 inline-block;
+}

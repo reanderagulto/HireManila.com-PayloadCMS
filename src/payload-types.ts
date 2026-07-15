@@ -231,6 +231,7 @@ export interface Page {
     | PartnersBlock
     | HPAdvantageBlock
     | RecruitmentProcessBlock
+    | RecruitmentAdvantageBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1030,6 +1031,36 @@ export interface RecruitmentProcessBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RecruitmentAdvantageBlock".
+ */
+export interface RecruitmentAdvantageBlock {
+  title: string;
+  image?: (number | null) | Media;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  ctaGroup?: {
+    label?: string | null;
+    url?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'recruitmentAdvantageBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1349,6 +1380,7 @@ export interface PagesSelect<T extends boolean = true> {
         partner?: T | PartnersBlockSelect<T>;
         hpAdvantage?: T | HPAdvantageBlockSelect<T>;
         recruitmentProcessBlock?: T | RecruitmentProcessBlockSelect<T>;
+        recruitmentAdvantageBlock?: T | RecruitmentAdvantageBlockSelect<T>;
       };
   meta?:
     | T
@@ -1506,6 +1538,23 @@ export interface RecruitmentProcessBlockSelect<T extends boolean = true> {
         title?: T;
         content?: T;
         id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RecruitmentAdvantageBlock_select".
+ */
+export interface RecruitmentAdvantageBlockSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
+  content?: T;
+  ctaGroup?:
+    | T
+    | {
+        label?: T;
+        url?: T;
       };
   id?: T;
   blockName?: T;

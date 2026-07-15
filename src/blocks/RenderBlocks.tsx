@@ -11,6 +11,7 @@ import { ReviewBlock } from '@/blocks/ReviewBlock/Component'
 import { PartnersBlock } from '@/blocks/PartnersBlock/Component'
 import { HPAdvantageBlock } from '@/blocks/HPAdvantageBlock/Component'
 import { RecruitmentProcessBlock } from '@/blocks/RecruitmentProcessBlock/Component'
+import { RecruitmentAdvantageBlock } from '@/blocks/RecruitmentAdvantageBlock/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -22,6 +23,7 @@ const blockComponents = {
   partner: PartnersBlock,
   hpAdvantage: HPAdvantageBlock,
   recruitmentProcessBlock: RecruitmentProcessBlock,
+  recruitmentAdvantageBlock: RecruitmentAdvantageBlock,
 }
 
 export const RenderBlocks: React.FC<{

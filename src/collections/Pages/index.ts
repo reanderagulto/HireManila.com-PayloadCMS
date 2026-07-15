@@ -11,6 +11,7 @@ import { ReviewBlock } from '@/blocks/ReviewBlock/config'
 import { PartnersBlock } from '@/blocks/PartnersBlock/config'
 import { HPAdvantageBlock } from '@/blocks/HPAdvantageBlock/config'
 import { RecruitmentProcessBlock } from '@/blocks/RecruitmentProcessBlock/config'
+import { RecruitmentAdvantageBlock } from '@/blocks/RecruitmentAdvantageBlock/config'
 import { hero } from '@/heros/config'
 import { slugField } from 'payload'
 import { populatePublishedAt } from '@/hooks/populatePublishedAt'
@@ -86,6 +87,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 PartnersBlock,
                 HPAdvantageBlock,
                 RecruitmentProcessBlock,
+                RecruitmentAdvantageBlock,
               ],
               required: true,
               admin: {
