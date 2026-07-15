@@ -230,6 +230,7 @@ export interface Page {
     | ReviewBlock
     | PartnersBlock
     | HPAdvantageBlock
+    | RecruitmentProcessBlock
   )[];
   meta?: {
     title?: string | null;
@@ -983,6 +984,52 @@ export interface HPAdvantageBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RecruitmentProcessBlock".
+ */
+export interface RecruitmentProcessBlock {
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  items?:
+    | {
+        image?: (number | null) | Media;
+        title?: string | null;
+        content?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'recruitmentProcessBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1301,6 +1348,7 @@ export interface PagesSelect<T extends boolean = true> {
         review?: T | ReviewBlockSelect<T>;
         partner?: T | PartnersBlockSelect<T>;
         hpAdvantage?: T | HPAdvantageBlockSelect<T>;
+        recruitmentProcessBlock?: T | RecruitmentProcessBlockSelect<T>;
       };
   meta?:
     | T
@@ -1435,6 +1483,23 @@ export interface HPAdvantageBlockSelect<T extends boolean = true> {
   subtitle?: T;
   content?: T;
   ctaGroup?:
+    | T
+    | {
+        image?: T;
+        title?: T;
+        content?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RecruitmentProcessBlock_select".
+ */
+export interface RecruitmentProcessBlockSelect<T extends boolean = true> {
+  content?: T;
+  items?:
     | T
     | {
         image?: T;
