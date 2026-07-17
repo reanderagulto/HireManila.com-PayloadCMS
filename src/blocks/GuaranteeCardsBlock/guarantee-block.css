@@ -1,0 +1,29 @@
+@reference "../../app/(frontend)/globals.css";
+
+.guarantee-block {
+  @apply bg-primary-50 py-16 lg:py-[7.5rem];
+}
+
+.guarantee-block__header {
+  @apply text-center mb-10 lg:mb-20;
+}
+
+.guarantee-block__header h4 {
+  @apply mb-0;
+}
+
+.guarantee-block__list {
+  @apply flex justify-center items-stretch gap-6 flex-wrap;
+}
+
+.guarantee-block__card {
+  @apply w-[32.25rem] p-8 gap-8 mx-auto flex flex-col rounded-2xl border-[1.5px] border-neutral-900 bg-warning-50 lg:gap-12 lg:w-[calc(50%-24px)] lg:mx-0 lg:justify-between;
+}
+
+.guarantee-block__card--content h5 {
+  @apply mb-4;
+}
+
+.guarantee-block__card--content .payload-richtext > * {
+  @apply mb-6 text-[16px] leading-[1.5] text-neutral-500;
+}

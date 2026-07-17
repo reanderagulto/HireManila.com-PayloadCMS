@@ -234,6 +234,7 @@ export interface Page {
     | RecruitmentAdvantageBlock
     | FaqBlock
     | HiringStepsBlock
+    | GuaranteeBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1129,6 +1130,38 @@ export interface HiringStepsBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GuaranteeBlock".
+ */
+export interface GuaranteeBlock {
+  title: string;
+  cards?:
+    | {
+        title?: string | null;
+        content?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'guaranteeBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1451,6 +1484,7 @@ export interface PagesSelect<T extends boolean = true> {
         recruitmentAdvantageBlock?: T | RecruitmentAdvantageBlockSelect<T>;
         faqBlock?: T | FaqBlockSelect<T>;
         hiringStepsBlock?: T | HiringStepsBlockSelect<T>;
+        guaranteeBlock?: T | GuaranteeBlockSelect<T>;
       };
   meta?:
     | T
@@ -1662,6 +1696,23 @@ export interface HiringStepsBlockSelect<T extends boolean = true> {
     | {
         title?: T;
         content?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GuaranteeBlock_select".
+ */
+export interface GuaranteeBlockSelect<T extends boolean = true> {
+  title?: T;
+  cards?:
+    | T
+    | {
+        title?: T;
+        content?: T;
+        image?: T;
         id?: T;
       };
   id?: T;
