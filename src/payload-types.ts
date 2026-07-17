@@ -233,6 +233,7 @@ export interface Page {
     | RecruitmentProcessBlock
     | RecruitmentAdvantageBlock
     | FaqBlock
+    | HiringStepsBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1097,6 +1098,37 @@ export interface FaqBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HiringStepsBlock".
+ */
+export interface HiringStepsBlock {
+  title: string;
+  steps?:
+    | {
+        title?: string | null;
+        content?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hiringStepsBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1418,6 +1450,7 @@ export interface PagesSelect<T extends boolean = true> {
         recruitmentProcessBlock?: T | RecruitmentProcessBlockSelect<T>;
         recruitmentAdvantageBlock?: T | RecruitmentAdvantageBlockSelect<T>;
         faqBlock?: T | FaqBlockSelect<T>;
+        hiringStepsBlock?: T | HiringStepsBlockSelect<T>;
       };
   meta?:
     | T
@@ -1613,6 +1646,22 @@ export interface FaqBlockSelect<T extends boolean = true> {
     | {
         question?: T;
         answer?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HiringStepsBlock_select".
+ */
+export interface HiringStepsBlockSelect<T extends boolean = true> {
+  title?: T;
+  steps?:
+    | T
+    | {
+        title?: T;
+        content?: T;
         id?: T;
       };
   id?: T;

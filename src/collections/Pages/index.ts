@@ -13,6 +13,7 @@ import { HPAdvantageBlock } from '@/blocks/HPAdvantageBlock/config'
 import { RecruitmentProcessBlock } from '@/blocks/RecruitmentProcessBlock/config'
 import { RecruitmentAdvantageBlock } from '@/blocks/RecruitmentAdvantageBlock/config'
 import { FAQBlock } from '@/blocks/FAQ/config'
+import { HiringStepsBlock } from '@/blocks/HiringStepsBlock/config'
 import { hero } from '@/heros/config'
 import { slugField } from 'payload'
 import { populatePublishedAt } from '@/hooks/populatePublishedAt'
@@ -90,6 +91,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 RecruitmentProcessBlock,
                 RecruitmentAdvantageBlock,
                 FAQBlock,
+                HiringStepsBlock,
               ],
               required: true,
               admin: {
