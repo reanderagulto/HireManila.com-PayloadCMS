@@ -15,6 +15,7 @@ import { RecruitmentAdvantageBlock } from '@/blocks/RecruitmentAdvantageBlock/Co
 import { HiringStepsBlock } from '@/blocks/HiringStepsBlock/Component'
 import { FAQBlock } from '@/blocks/FAQ/Component'
 import { GuaranteeBlock } from '@/blocks/GuaranteeCardsBlock/Component'
+import { CategoryChecklist } from '@/blocks/CategoryChecklist/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -30,6 +31,7 @@ const blockComponents = {
   faqBlock: FAQBlock,
   hiringStepsBlock: HiringStepsBlock,
   guaranteeBlock: GuaranteeBlock,
+  categoryChecklist: CategoryChecklist,
 }
 
 export const RenderBlocks: React.FC<{

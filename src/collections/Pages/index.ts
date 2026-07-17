@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '@/access/authenticated'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
+// Blocks
 import { Archive } from '@/blocks/ArchiveBlock/config'
 import { CallToAction } from '@/blocks/CallToAction/config'
 import { Content } from '@/blocks/Content/config'
@@ -15,7 +16,10 @@ import { RecruitmentAdvantageBlock } from '@/blocks/RecruitmentAdvantageBlock/co
 import { FAQBlock } from '@/blocks/FAQ/config'
 import { HiringStepsBlock } from '@/blocks/HiringStepsBlock/config'
 import { GuaranteeCardsBlock } from '@/blocks/GuaranteeCardsBlock/config'
+import { CategoryChecklist } from '@/blocks/CategoryChecklist/config'
+// Hero Section
 import { hero } from '@/heros/config'
+
 import { slugField } from 'payload'
 import { populatePublishedAt } from '@/hooks/populatePublishedAt'
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
@@ -94,6 +98,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 FAQBlock,
                 HiringStepsBlock,
                 GuaranteeCardsBlock,
+                CategoryChecklist,
               ],
               required: true,
               admin: {

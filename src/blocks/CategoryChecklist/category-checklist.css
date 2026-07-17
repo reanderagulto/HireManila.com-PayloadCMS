@@ -1,0 +1,29 @@
+@reference "../../app/(frontend)/globals.css";
+
+.category-checklist {
+  @apply pb-12 lg:pb-20;
+}
+
+.category-checklist h4 {
+  @apply mb-10 text-left sm:text-center lg:text-left;
+}
+
+.category-checklist__list {
+  @apply flex flex-wrap items-stretch justify-center gap-6 lg:gap-8;
+}
+
+.category-checklist__item {
+  @apply flex flex-col gap-6 w-full sm:w-1/2 border-b border-b-neutral-100 pb-6 lg:w-[calc(25%-2rem)] lg:border-r lg:pr-8 lg:border-r-neutral-100 lg:pb-0 last:border-r-0 last:pr-0 last:border-b-0 last:pb-0;
+}
+
+.category-checklist__item h6 {
+  @apply mb-0;
+}
+
+.category-checklist__skills {
+  @apply flex flex-col gap-3;
+}
+
+.category-checklist__skills li {
+  @apply flex items-center gap-2;
+}

@@ -235,6 +235,7 @@ export interface Page {
     | FaqBlock
     | HiringStepsBlock
     | GuaranteeBlock
+    | CategoryChecklist
   )[];
   meta?: {
     title?: string | null;
@@ -1162,6 +1163,28 @@ export interface GuaranteeBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CategoryChecklist".
+ */
+export interface CategoryChecklist {
+  title: string;
+  categories?:
+    | {
+        title: string;
+        items?:
+          | {
+              label: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'categoryChecklist';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1485,6 +1508,7 @@ export interface PagesSelect<T extends boolean = true> {
         faqBlock?: T | FaqBlockSelect<T>;
         hiringStepsBlock?: T | HiringStepsBlockSelect<T>;
         guaranteeBlock?: T | GuaranteeBlockSelect<T>;
+        categoryChecklist?: T | CategoryChecklistSelect<T>;
       };
   meta?:
     | T
@@ -1713,6 +1737,27 @@ export interface GuaranteeBlockSelect<T extends boolean = true> {
         title?: T;
         content?: T;
         image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CategoryChecklist_select".
+ */
+export interface CategoryChecklistSelect<T extends boolean = true> {
+  title?: T;
+  categories?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
         id?: T;
       };
   id?: T;
