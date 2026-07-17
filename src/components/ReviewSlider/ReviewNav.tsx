@@ -14,8 +14,6 @@ type Props = {
 import './review-slider.css'
 
 export const ReviewNav: React.FC<Props> = ({ splideRef, nextDisabled, prevDisabled }) => {
-  console.log(nextDisabled, prevDisabled)
-
   const navigation = (action: '<' | '>') => {
     splideRef.current?.splide?.go(action)
   }

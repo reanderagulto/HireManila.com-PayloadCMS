@@ -232,6 +232,7 @@ export interface Page {
     | HPAdvantageBlock
     | RecruitmentProcessBlock
     | RecruitmentAdvantageBlock
+    | FaqBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1025,6 +1026,10 @@ export interface RecruitmentProcessBlock {
         id?: string | null;
       }[]
     | null;
+  ctaGroup?: {
+    label?: string | null;
+    url?: string | null;
+  };
   id?: string | null;
   blockName?: string | null;
   blockType: 'recruitmentProcessBlock';
@@ -1058,6 +1063,37 @@ export interface RecruitmentAdvantageBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'recruitmentAdvantageBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqBlock".
+ */
+export interface FaqBlock {
+  title: string;
+  questions?:
+    | {
+        question: string;
+        answer?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faqBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1381,6 +1417,7 @@ export interface PagesSelect<T extends boolean = true> {
         hpAdvantage?: T | HPAdvantageBlockSelect<T>;
         recruitmentProcessBlock?: T | RecruitmentProcessBlockSelect<T>;
         recruitmentAdvantageBlock?: T | RecruitmentAdvantageBlockSelect<T>;
+        faqBlock?: T | FaqBlockSelect<T>;
       };
   meta?:
     | T
@@ -1539,6 +1576,12 @@ export interface RecruitmentProcessBlockSelect<T extends boolean = true> {
         content?: T;
         id?: T;
       };
+  ctaGroup?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1555,6 +1598,22 @@ export interface RecruitmentAdvantageBlockSelect<T extends boolean = true> {
     | {
         label?: T;
         url?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqBlock_select".
+ */
+export interface FaqBlockSelect<T extends boolean = true> {
+  title?: T;
+  questions?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
       };
   id?: T;
   blockName?: T;

@@ -56,6 +56,21 @@ export const RecruitmentProcessBlock: Block = {
         },
       ],
     },
+    {
+      name: 'ctaGroup',
+      type: 'group',
+      fields: [
+        {
+          name: 'label',
+          type: 'text',
+        },
+        {
+          name: 'url',
+          type: 'text',
+          label: 'URL',
+        },
+      ],
+    },
   ],
   labels: {
     plural: 'Recruitment Process',

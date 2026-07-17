@@ -1,0 +1,55 @@
+@reference "../../app/(frontend)/globals.css";
+
+.faq {
+  @apply pt-[5rem] pb-[7.5rem] relative block bg-white;
+}
+
+.faq h2 {
+  @apply text-center;
+}
+
+.faq__list {
+  @apply w-full max-w-[max(61.11vw,880px)] mx-auto flex flex-col justify-center items-stretch pt-[3.5rem];
+}
+
+.faq__list--item {
+  @apply pb-6 mb-6 border-b border-neutral-100;
+}
+
+.faq-title {
+  @apply flex items-center justify-between cursor-pointer mb-2;
+}
+
+.faq-title h6 {
+  @apply mb-0;
+}
+
+.faq-title.active svg {
+  @apply rotate-180;
+}
+
+.faq-content {
+  @apply invisible h-0 overflow-hidden;
+}
+
+.faq-content.open {
+  @apply visible;
+  animation: faq-slide-down 800ms ease-in-out forwards;
+}
+
+.faq-content .payload-richtext > * {
+  @apply text-neutral-500 text-[1rem] leading-[1.5] my-[1rem];
+}
+
+.faq-content .payload-richtext > ul > li {
+  @apply mb-2 last:mb-0;
+}
+
+@keyframes faq-slide-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}

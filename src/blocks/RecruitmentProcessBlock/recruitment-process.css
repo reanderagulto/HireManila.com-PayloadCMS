@@ -27,3 +27,7 @@
 .recruitment__list--content .payload-richtext > * {
   @apply text-[14px] leading-[1.42] text-neutral-500 mb-0;
 }
+
+.recruitment__cta {
+  @apply mx-auto w-max;
+}

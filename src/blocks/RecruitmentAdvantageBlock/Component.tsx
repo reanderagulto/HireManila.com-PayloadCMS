@@ -25,7 +25,7 @@ export const RecruitmentAdvantageBlock: React.FC<RecruitmentAdvantageProps> = as
           {content && (
             <div className="recruitment-advantage__text">
               <RichText data={content} />
-              {ctaGroup !== undefined && (
+              {ctaGroup !== undefined && ctaGroup.label !== null && (
                 <Button size="md" variant="positive" className="recruitment-advantage__cta">
                   <Link href={ctaGroup?.url}>{ctaGroup?.label}</Link>
                 </Button>
